@@ -16,6 +16,7 @@ class Movie extends React.Component {
         return(
             <div className="App">
             <h1><input name="mt" onChange={this.handleNEWTitle.bind(this)} value={this.state.mt} /></h1>
+            <img src={this.props.mov.Poster} />
              <h2>{this.props.mov.Year}</h2>
             </div>
             )
