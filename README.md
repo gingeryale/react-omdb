@@ -1,7 +1,8 @@
-<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+
+### `npm install to get node_modules`
 
 In the project directory, you can run:
 
@@ -67,7 +68,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-=======
-# react-omdb
-Search omdb and edit film title
->>>>>>> c1a9e690e02524fca55b645fe4e23556fee73d48
+
