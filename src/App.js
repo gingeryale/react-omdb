@@ -6,33 +6,32 @@ import Search from "./comps/Search";
 class App extends React.Component {
 
     state = {
-        movies: []
-    } 
+        movies : []
+    }
 
-    render() {
-        return (
+    render(){
+        return(
             <div className="App">
-            <Search download={this.downloadMovies.bind(this)}/>
-                <h1>Movies</h1>
-                {this.state.movies.map((m) => <Movie changeBindingFunc={this.changeMovieData.bind(this)} mov={m} key={m.imdbID}  />  )}
+                <Search download={this.downloadMovies.bind(this)}/>
+                {this.state.movies.map(m => <Movie switchTitle={this.changeMovieTitle.bind(this)} mov={m} key={m.imdbID} />)}
             </div>
-        );
+            )
     }
 
-    downloadMovies(searchWord){
-        fetch(`http://www.omdbapi.com/?s=${searchWord}&apikey=58a8ecd0`)
-        .then(r => r.json())
+    downloadMovies(searchWord) {
+        fetch(`http://www.omdbapi.com/?s=${searchWord}&apikey=b003b1e2`)
+        .then(r=>r.json())
         .then(data => {
-                this.setState({ movies: data.Search  });
-        });
+            this.setState({ movies : data.Search })
+        })
     }
-
-changeMovieData(newMoveName, currentIdKey) {
-    var oldArr = [...this.state.movies];
-    var editedTitle = oldArr.find(el => el.imdbID === currentIdKey);
-    editedTitle.Title = newMoveName;
-    this.setState({ movies : oldArr})
+    changeMovieTitle(newName, movieID){
+    let oldArr = [...this.state.movies];
+    var locateMovieinArr = oldArr.find(el => el.imdbID === movieID);
+    locateMovieinArr.Title = newName;
+    this.setState({ movies : oldArr });
 }
+
 }
 
 

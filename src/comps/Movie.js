@@ -2,33 +2,29 @@ import React from 'react';
 
 class Movie extends React.Component { 
 
-    state = {
-        movieTitle: ""
-    } 
-
+    state={
+        mt: this.props.mov.Title
+    }
     componentDidMount(){
-        this.setState({ movieTitle: this.props.mov.Title })
+        this.setState({ mt : this.props.mov.Title })
+    }
+    componentWillReceiveProps(){
+        this.setState({ mt : this.props.mov.Title })
     }
 
-    componentWillReceiveProps() {
-        this.setState( { movieTitle: this.props.mov.Title })
-    }
-    render() {
-        return (
+     render(){
+        return(
             <div className="App">
-             <h1><input onChange={this.handleText.bind(this)} value={this.state.movieTitle} /> </h1>
-             <img src={this.props.mov.Poster} />
-             <h4>year: {this.props.mov.Year}</h4>
-             <hr />
+            <h1><input name="mt" onChange={this.handleNEWTitle.bind(this)} value={this.state.mt} /></h1>
+             <h2>{this.props.mov.Year}</h2>
             </div>
-        );
+            )
     }
 
-    handleText(e){
-        var newMoveName = e.target.value;
-        var currentIdKey = this.props.mov.imdbID;
-        //this.setState({ [e.target.name] : e.target.value});
-        this.props.changeBindingFunc(newMoveName, currentIdKey);
+    handleNEWTitle(e){
+        let newName = e.target.value;
+        let movieID = this.props.mov.imdbID;
+        this.props.switchTitle(newName, movieID);
     }
     
 }
